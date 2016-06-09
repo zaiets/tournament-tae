@@ -17,7 +17,7 @@ public class Dojang {
     @Column(name = "NAME")
     private String name;
     @OneToMany(mappedBy = "EVENTS")
-    private List<IEvent> eventsList;
+    private List<Event> eventsList;
     @ManyToOne
     @JoinColumn(name = "TOURNAMENT_ID")
     private Tournament tournament;
@@ -41,11 +41,11 @@ public class Dojang {
         this.name = name;
     }
 
-    public List<IEvent> getEventsList() {
+    public List<Event> getEventsList() {
         return eventsList;
     }
 
-    public void setEventsList(List<IEvent> eventsList) {
+    public void setEventsList(List<Event> eventsList) {
         this.eventsList = eventsList;
     }
 

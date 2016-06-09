@@ -17,7 +17,7 @@ public class Discipline {
     @Column(name = "NAME")
     private String name;
     @OneToMany(mappedBy = "EVENTS")
-    private List<IEvent> events;
+    private List<Event> events;
     @ManyToMany
     @JoinTable(name = "SPARRERS_DISCIPLINES",
             joinColumns = @JoinColumn(name = "DISCIPLINE_ID"),
@@ -43,11 +43,11 @@ public class Discipline {
         this.name = name;
     }
 
-    public List<IEvent> getEvents() {
+    public List<Event> getEvents() {
         return events;
     }
 
-    public void setEvents(List<IEvent> events) {
+    public void setEvents(List<Event> events) {
         this.events = events;
     }
 

@@ -2,7 +2,7 @@ package models.entity.basic;
 
 
 import models.entity.competition.Dojang;
-import models.entity.competition.IEvent;
+import models.entity.competition.Event;
 import models.entity.competition.Sparrer;
 import org.springframework.stereotype.Component;
 
@@ -28,7 +28,7 @@ public class Tournament {
     @OneToMany(mappedBy = "SPARRERS")
     private Set<Sparrer> sparrers;
     @OneToMany(mappedBy = "EVENTS")
-    private Set<IEvent> events;
+    private Set<Event> events;
 
     public Tournament() {
     }
@@ -73,11 +73,11 @@ public class Tournament {
         this.sparrers = sparrers;
     }
 
-    public Set<IEvent> getEvents() {
+    public Set<Event> getEvents() {
         return events;
     }
 
-    public void setEvents(Set<IEvent> events) {
+    public void setEvents(Set<Event> events) {
         this.events = events;
     }
 

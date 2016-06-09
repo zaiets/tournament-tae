@@ -20,6 +20,7 @@
         <mapping class="models.entity.competition.Discipline"/>
         <mapping class="models.entity.competition.Sparrer"/>
         <mapping class="models.entity.competition.Dojang"/>
+        <mapping class="models.entity.competition.Event"/>
         <mapping class="models.entity.competition.SparringEvent"/>
     </session-factory>
 

@@ -57,7 +57,7 @@ public class Sparrer {
     @JoinTable(name = "SPARRERS_EVENTS",
             joinColumns = @JoinColumn(name = "SPARRER_ID"),
             inverseJoinColumns = @JoinColumn(name = "EVENT_ID"))
-    private List<IEvent> events;
+    private List<Event> events;
 
     public Sparrer() {
     }
