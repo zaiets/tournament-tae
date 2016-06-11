@@ -17,11 +17,11 @@ public enum Sex {
         return value;
     }
 
-    public static Sex parseSex(Character s) {
+    public static Sex defineSex(Character s) {
         Sex sex;
         if (s == 'w' || s == 'ж' || s == 'W' || s == 'Ж') {
             sex = Sex.FEMALE;
-        } else if (s == 'm' || s == 'м' || s == 'M' || s == 'М') {
+        } else if (s == 'm' || s == 'ч' || s == 'M' || s == 'Ч') {
             sex = Sex.MALE;
         } else sex = null;
         return sex;

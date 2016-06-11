@@ -12,7 +12,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tournament_tae</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hbm2ddl.auto">validate</property>
-        <mapping class="models.entity.basic.Kup"/>
+        <mapping class="models.definitions.Kup"/>
         <mapping class="models.entity.basic.School"/>
         <mapping class="models.entity.basic.Tournament"/>
         <mapping class="models.entity.basic.Trainer"/>

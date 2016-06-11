@@ -1,7 +1,7 @@
 package models.entity.competition;
 
 
-import models.entity.basic.Kup;
+import models.definitions.Kup;
 import models.entity.basic.Tournament;
 import models.entity.basic.Trainer;
 import models.entity.basic.WeightCategory;

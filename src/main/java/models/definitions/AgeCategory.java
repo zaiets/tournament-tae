@@ -1,7 +1,5 @@
 package models.definitions;
 
-import exceptions.ApplicationException;
-
 /**
  * Created by Levsha on 15.02.2016.
  */
@@ -34,7 +32,7 @@ public enum AgeCategory {
         this.name = name;
     }
 
-    public static AgeCategory defineAgeCategory(int age, Sex sex) throws ApplicationException {
+    public static AgeCategory defineAgeCategory(int age, Sex sex) {
         AgeCategory ageCategory;
         /*
         int age = date.toLocalDate().until(LocalDate.parse(zzz.getProperties().getProperty("TournamentDate"), DateTimeFormatter.ISO_DATE)).getYears();
@@ -51,7 +49,7 @@ public enum AgeCategory {
                 ageCategory = GIRLS_14_TO_15;}
             else if (ageInRange(GIRLS_16_TO_17, age)) {
                 ageCategory = GIRLS_16_TO_17;}
-            else throw new ApplicationException("Age category is out of range");
+            else throw new Error("Age category is out of range");
         } else {
             if (ageInRange(BOYS_7_TO_8, age)) {
                 ageCategory = BOYS_7_TO_8;}
@@ -63,7 +61,7 @@ public enum AgeCategory {
                 ageCategory = BOYS_14_TO_15;}
             else if (ageInRange(BOYS_16_TO_17, age)) {
                 ageCategory = BOYS_16_TO_17;}
-            else throw new ApplicationException("Age category is out of range");
+            else throw new Error("Age category is out of range");
         }
         return ageCategory;
     }
