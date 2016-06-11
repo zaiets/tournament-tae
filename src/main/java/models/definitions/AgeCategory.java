@@ -37,7 +37,7 @@ public enum AgeCategory {
     public static AgeCategory defineAgeCategory(int age, Sex sex) throws ApplicationException {
         AgeCategory ageCategory;
         /*
-        int age = date.toLocalDate().until(LocalDate.parse(MyPropertyUtils.getProperties().getProperty("TournamentDate"), DateTimeFormatter.ISO_DATE)).getYears();
+        int age = date.toLocalDate().until(LocalDate.parse(zzz.getProperties().getProperty("TournamentDate"), DateTimeFormatter.ISO_DATE)).getYears();
         в будущем можно использовать расчет исходя из даты соревнования
          */
         if (sex == Sex.FEMALE) {
