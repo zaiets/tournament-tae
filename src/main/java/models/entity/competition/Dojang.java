@@ -20,7 +20,7 @@ public class Dojang {
     @Basic
     @Column(name = "NAME")
     private String name;
-    @OneToMany(mappedBy = "EVENTS")
+    @OneToMany(mappedBy = "dojang")
     private List<Event> eventsList;
     @ManyToOne
     @JoinColumn(name = "TOURNAMENT_ID")

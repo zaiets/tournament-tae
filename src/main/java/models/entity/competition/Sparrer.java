@@ -48,6 +48,7 @@ public class Sparrer {
     @Basic
     @Column(name = "WEIGHT")
     private Integer weight;
+    @ManyToMany
     @JoinTable(name = "SPARRERS_DISCIPLINES",
             joinColumns = @JoinColumn(name = "SPARRER_ID"),
             inverseJoinColumns = @JoinColumn(name = "DISCIPLINE_ID"))

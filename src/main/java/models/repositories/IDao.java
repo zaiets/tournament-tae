@@ -1,4 +1,4 @@
-package models.database;
+package models.repositories;
 
 import java.util.List;
 

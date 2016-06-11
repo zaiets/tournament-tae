@@ -33,7 +33,7 @@ public abstract class Event {
     @JoinColumn(name = "TOURNAMENT_ID")
     private Tournament tournament;
     @ManyToOne
-    @JoinColumn(name = "DISCIPLINE_ID")
+    @JoinColumn(name = "DISCIPLINE_ID", insertable = false, updatable = false)
     private Discipline discipline;
 
     public Event() {
