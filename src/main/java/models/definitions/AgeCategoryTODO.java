@@ -3,7 +3,7 @@ package models.definitions;
 /**
  * Created by Levsha on 15.02.2016.
  */
-public enum AgeCategory {
+public enum AgeCategoryTODO {
 
     //TODO разобрать на классы и методы
 
@@ -24,7 +24,7 @@ public enum AgeCategory {
     private Sex sex;
     private String name;
 
-    AgeCategory(int[] weightRangeDelimiter, int minAge, int maxAge, Sex sex, String name) {
+    AgeCategoryTODO(int[] weightRangeDelimiter, int minAge, int maxAge, Sex sex, String name) {
         this.weightRangeDelimiter = weightRangeDelimiter;
         this.minAge = minAge;
         this.maxAge = maxAge;
@@ -32,8 +32,8 @@ public enum AgeCategory {
         this.name = name;
     }
 
-    public static AgeCategory defineAgeCategory(int age, Sex sex) {
-        AgeCategory ageCategory;
+    public static AgeCategoryTODO defineAgeCategory(int age, Sex sex) {
+        AgeCategoryTODO ageCategory;
         /*
         int age = date.toLocalDate().until(LocalDate.parse(zzz.getProperties().getProperty("TournamentDate"), DateTimeFormatter.ISO_DATE)).getYears();
         в будущем можно использовать расчет исходя из даты соревнования
@@ -66,7 +66,7 @@ public enum AgeCategory {
         return ageCategory;
     }
 
-    public static int defineWeightGroup (int weight, AgeCategory category) {
+    public static int defineWeightGroup (int weight, AgeCategoryTODO category) {
         if (weight < category.weightRangeDelimiter[0]) {
             return category.weightRangeDelimiter[0];
         }
@@ -79,7 +79,7 @@ public enum AgeCategory {
     }
 
 
-    public static boolean ageInRange (AgeCategory ageCategory, int i) {
+    public static boolean ageInRange (AgeCategoryTODO ageCategory, int i) {
         return (i >= ageCategory.minAge && i <= ageCategory.maxAge);
     }
 

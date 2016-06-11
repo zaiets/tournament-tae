@@ -3,9 +3,9 @@ package models.utils;
 import java.io.*;
 import java.util.*;
 
-public final class FileReaderForINI {
+public final class FileReaderTest {
 
-    private FileReaderForINI() {
+    private FileReaderTest() {
     }
 
     public static Optional<Map<String, String>> readIniAsMap(String targetFile) {

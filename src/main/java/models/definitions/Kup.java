@@ -41,5 +41,4 @@ public enum Kup {
         }
         return null;
     }
-
 }

@@ -12,9 +12,12 @@ import java.util.Set;
 
 @Component
 @Entity
-@Table(name = "TOURNAMENTS")
+@Table(name = "TOURNAMENTS",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "NAME")})
 public class Tournament {
     @Id
+    @GeneratedValue
     @Column(name = "ID")
     private Integer id;
     @Basic
@@ -23,11 +26,11 @@ public class Tournament {
     @Basic
     @Column(name = "START_DATE")
     private LocalDateTime startDate;
-    @OneToMany(mappedBy = "DOJANGS")
+    @OneToMany(mappedBy = "tournament")
     private Set<Dojang> dojangs;
-    @OneToMany(mappedBy = "SPARRERS")
+    @OneToMany(mappedBy = "tournament")
     private Set<Sparrer> sparrers;
-    @OneToMany(mappedBy = "EVENTS")
+    @OneToMany(mappedBy = "tournament")
     private Set<Event> events;
 
     public Tournament() {

@@ -12,9 +12,10 @@ import java.util.Set;
 @Entity
 @Table(name = "EVENTS")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TYPE")
+@DiscriminatorColumn(name = "DISCIPLINE_ID")
 public abstract class Event {
     @Id
+    @GeneratedValue
     @Column(name = "ID")
     private Integer id;
     @ManyToMany

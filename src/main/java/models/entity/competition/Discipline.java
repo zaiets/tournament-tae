@@ -8,15 +8,18 @@ import java.util.Set;
 
 @Component
 @Entity
-@Table(name = "DISCIPLINES")
+@Table(name = "DISCIPLINES",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "NAME")})
 public class Discipline {
     @Id
+    @GeneratedValue
     @Column(name = "ID")
     private Integer id;
     @Basic
     @Column(name = "NAME")
     private String name;
-    @OneToMany(mappedBy = "EVENTS")
+    @OneToMany(mappedBy = "discipline")
     private List<Event> events;
     @ManyToMany
     @JoinTable(name = "SPARRERS_DISCIPLINES",

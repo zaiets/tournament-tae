@@ -1,7 +1,6 @@
 package models.entity.basic;
 
 
-import models.entity.competition.Sparrer;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -9,20 +8,22 @@ import java.util.Set;
 
 @Component
 @Entity
-@Table(name = "SCHOOLS")
+@Table(name = "SCHOOLS",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "NAME")})
 public class School {
     @Id
+    @GeneratedValue
     @Column(name = "ID")
     private Integer id;
     @Basic
     @Column(name = "NAME")
     private String name;
-    @OneToMany(mappedBy = "TRAINERS")
+    @OneToMany(mappedBy = "school")
     private Set<Trainer> trainers;
-    @OneToMany(mappedBy = "SPARRERS")
-    private Set<Sparrer> sparrers;
 
-    public School() {}
+    public School() {
+    }
 
     public Integer getId() {
         return id;
@@ -48,14 +49,6 @@ public class School {
         this.trainers = trainers;
     }
 
-    public Set<Sparrer> getSparrers() {
-        return sparrers;
-    }
-
-    public void setSparrers(Set<Sparrer> sparrers) {
-        this.sparrers = sparrers;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,9 +58,7 @@ public class School {
 
         if (getId() != null ? !getId().equals(school.getId()) : school.getId() != null) return false;
         if (getName() != null ? !getName().equals(school.getName()) : school.getName() != null) return false;
-        if (getTrainers() != null ? !getTrainers().equals(school.getTrainers()) : school.getTrainers() != null)
-            return false;
-        return getSparrers() != null ? getSparrers().equals(school.getSparrers()) : school.getSparrers() == null;
+        return getTrainers() != null ? getTrainers().equals(school.getTrainers()) : school.getTrainers() == null;
 
     }
 
@@ -76,7 +67,6 @@ public class School {
         int result = getId() != null ? getId().hashCode() : 0;
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getTrainers() != null ? getTrainers().hashCode() : 0);
-        result = 31 * result + (getSparrers() != null ? getSparrers().hashCode() : 0);
         return result;
     }
 }

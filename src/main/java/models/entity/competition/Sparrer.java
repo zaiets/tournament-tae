@@ -14,9 +14,14 @@ import java.util.Set;
 
 @Component
 @Entity
-@Table(name = "SPARRERS")
+@Table(name = "SPARRERS",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "SURNAME"),
+                @UniqueConstraint(columnNames = "NAME"),
+                @UniqueConstraint(columnNames = "BIRTHDAY")})
 public class Sparrer {
     @Id
+    @GeneratedValue
     @Column(name = "ID")
     private Integer id;
     @Basic
@@ -31,11 +36,11 @@ public class Sparrer {
     @ManyToOne
     @JoinColumn(name = "FIRST_TRAINER_ID")
     private Trainer firstTrainer;
-    @ManyToOne
-    @JoinColumn(name = "KUP_ID")
+    @Basic
+    @Column(name = "KUP")
     private Kup kup;
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "SEX")
     private Character sex;
     @Basic
     @Column(name = "BIRTHDAY")

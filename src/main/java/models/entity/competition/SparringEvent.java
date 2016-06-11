@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Component
 @Entity
-@DiscriminatorValue("TYPE")
+@DiscriminatorValue("1")
 public class SparringEvent extends Event {
     //sparring unique fields
     @OneToOne

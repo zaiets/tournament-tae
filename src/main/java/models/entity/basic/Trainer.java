@@ -9,9 +9,14 @@ import java.util.Set;
 
 @Component
 @Entity
-@Table(name = "TRAINERS")
+@Table(name = "TRAINERS",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "SURNAME"),
+                @UniqueConstraint(columnNames = "NAME"),
+                @UniqueConstraint(columnNames = "PATRONYMIC")})
 public class Trainer {
     @Id
+    @GeneratedValue
     @Column(name = "ID")
     private Integer id;
     @Basic
@@ -26,7 +31,7 @@ public class Trainer {
     @ManyToOne
     @JoinColumn(name = "SCHOOL_ID")
     private School school;
-    @OneToMany(mappedBy = "SPARRERS")
+    @OneToMany(mappedBy = "trainer")
     private Set<Sparrer> sparrers;
 
     public Trainer () {    }

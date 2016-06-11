@@ -8,9 +8,13 @@ import java.util.List;
 
 @Component
 @Entity
-@Table(name = "DOJANGS")
+@Table(name = "DOJANGS",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "NAME"),
+                @UniqueConstraint(columnNames = "TOURNAMENT_ID")})
 public class Dojang {
     @Id
+    @GeneratedValue
     @Column(name = "ID")
     private Integer id;
     @Basic

@@ -9,9 +9,13 @@ import java.util.Set;
 
 @Component
 @Entity
-@Table(name = "WEIGHT_CATEGORIES")
+@Table(name = "WEIGHT_CATEGORIES",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "NAME"),
+                @UniqueConstraint(columnNames = "WEIGHT_FACTOR")})
 public class WeightCategory {
     @Id
+    @GeneratedValue
     @Column(name = "ID")
     private Integer id;
     @Basic
@@ -30,9 +34,12 @@ public class WeightCategory {
     @Column(name = "MAX_WEIGHT")
     private Integer maxWeight;
     @Basic
-    @Column(name = "WEIGHT_FACTOR_NAME")
-    private String weightFactorName;
-    @OneToMany(mappedBy = "SPARRERS")
+    @Column(name = "NAME")
+    private String name;
+    @Basic
+    @Column(name = "WEIGHT_FACTOR")
+    private String weightFactor;
+    @OneToMany(mappedBy = "weightCategory")
     private Set<Sparrer> sparrers;
 
     public WeightCategory() {    }
@@ -85,12 +92,20 @@ public class WeightCategory {
         this.maxWeight = maxWeight;
     }
 
-    public String getWeightFactorName() {
-        return weightFactorName;
+    public String getName() {
+        return name;
     }
 
-    public void setWeightFactorName(String weightFactorName) {
-        this.weightFactorName = weightFactorName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getWeightFactor() {
+        return weightFactor;
+    }
+
+    public void setWeightFactor(String weightFactor) {
+        this.weightFactor = weightFactor;
     }
 
     public Set<Sparrer> getSparrers() {
@@ -100,7 +115,6 @@ public class WeightCategory {
     public void setSparrers(Set<Sparrer> sparrers) {
         this.sparrers = sparrers;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -117,7 +131,8 @@ public class WeightCategory {
             return false;
         if (getMaxWeight() != null ? !getMaxWeight().equals(that.getMaxWeight()) : that.getMaxWeight() != null)
             return false;
-        if (getWeightFactorName() != null ? !getWeightFactorName().equals(that.getWeightFactorName()) : that.getWeightFactorName() != null)
+        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
+        if (getWeightFactor() != null ? !getWeightFactor().equals(that.getWeightFactor()) : that.getWeightFactor() != null)
             return false;
         return getSparrers() != null ? getSparrers().equals(that.getSparrers()) : that.getSparrers() == null;
 
@@ -131,7 +146,8 @@ public class WeightCategory {
         result = 31 * result + (getMaxAge() != null ? getMaxAge().hashCode() : 0);
         result = 31 * result + (getMinWeight() != null ? getMinWeight().hashCode() : 0);
         result = 31 * result + (getMaxWeight() != null ? getMaxWeight().hashCode() : 0);
-        result = 31 * result + (getWeightFactorName() != null ? getWeightFactorName().hashCode() : 0);
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getWeightFactor() != null ? getWeightFactor().hashCode() : 0);
         result = 31 * result + (getSparrers() != null ? getSparrers().hashCode() : 0);
         return result;
     }
