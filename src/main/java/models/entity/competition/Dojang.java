@@ -18,12 +18,12 @@ public class Dojang {
     @Column(name = "ID")
     private Integer id;
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable=false)
     private String name;
     @OneToMany(mappedBy = "dojang")
     private List<Event> eventsList;
     @ManyToOne
-    @JoinColumn(name = "TOURNAMENT_ID")
+    @JoinColumn(name = "TOURNAMENT_ID", nullable=false)
     private Tournament tournament;
 
     public Dojang() {

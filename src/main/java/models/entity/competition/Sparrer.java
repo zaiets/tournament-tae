@@ -25,28 +25,28 @@ public class Sparrer {
     @Column(name = "ID")
     private Integer id;
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable=false)
     private String name;
     @Basic
-    @Column(name = "SURNAME")
+    @Column(name = "SURNAME", nullable=false)
     private String surname;
     @ManyToOne
-    @JoinColumn(name = "TRAINER_ID")
+    @JoinColumn(name = "TRAINER_ID", nullable=false)
     private Trainer trainer;
     @ManyToOne
-    @JoinColumn(name = "FIRST_TRAINER_ID")
+    @JoinColumn(name = "FIRST_TRAINER_ID", nullable=false)
     private Trainer firstTrainer;
     @Basic
-    @Column(name = "KUP")
+    @Column(name = "KUP", nullable=false)
     private Kup kup;
     @Basic
-    @Column(name = "SEX")
+    @Column(name = "SEX", nullable=false)
     private Character sex;
     @Basic
-    @Column(name = "BIRTHDAY")
+    @Column(name = "BIRTHDAY", nullable=false)
     private LocalDate birthday;
     @Basic
-    @Column(name = "WEIGHT")
+    @Column(name = "WEIGHT", nullable=false)
     private Integer weight;
     @ManyToMany
     @JoinTable(name = "SPARRERS_DISCIPLINES",
@@ -54,10 +54,10 @@ public class Sparrer {
             inverseJoinColumns = @JoinColumn(name = "DISCIPLINE_ID"))
     private Set<Discipline> disciplines;
     @ManyToOne
-    @JoinColumn(name = "TOURNAMENT_ID")
+    @JoinColumn(name = "TOURNAMENT_ID", nullable=false)
     private Tournament tournament;
     @ManyToOne
-    @JoinColumn(name = "WEIGHT_CATEGORY_ID")
+    @JoinColumn(name = "WEIGHT_CATEGORY_ID", nullable=false)
     private WeightCategory weightCategory;
     @ManyToMany
     @JoinTable(name = "SPARRERS_EVENTS",

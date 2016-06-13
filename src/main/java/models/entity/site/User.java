@@ -4,22 +4,24 @@ package models.entity.site;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Component
 @Entity
 @Table(name = "USERS",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "LOGIN")})
-public class User {
+public class User implements Serializable{
+    private static final long serialVersionUID = 1;
     @Id
     @GeneratedValue
     @Column(name = "ID")
     private Integer id;
     @Basic
-    @Column(name = "LOGIN")
+    @Column(name = "LOGIN", nullable=false)
     private String login;
     @Basic
-    @Column(name = "PASSWORD")
+    @Column(name = "PASSWORD", nullable=false)
     private String password;
     @Basic
     @Column(name = "SURNAME")

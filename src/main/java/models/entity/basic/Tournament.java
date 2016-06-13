@@ -21,10 +21,10 @@ public class Tournament {
     @Column(name = "ID")
     private Integer id;
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable=false)
     private String name;
     @Basic
-    @Column(name = "START_DATE")
+    @Column(name = "START_DATE", nullable=false)
     private LocalDateTime startDate;
     @OneToMany(mappedBy = "tournament")
     private Set<Dojang> dojangs;

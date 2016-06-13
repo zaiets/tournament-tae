@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS sparrers (
   sex                VARCHAR(24)  NOT NULL,
   birthday           DATE         NOT NULL,
   weight             INT          NOT NULL,
-  tournament_id      INT,
+  tournament_id      INT          NOT NULL,
   weight_category_id INT          NOT NULL,
   FOREIGN KEY (trainer_id) REFERENCES trainers (id)
     ON DELETE CASCADE,

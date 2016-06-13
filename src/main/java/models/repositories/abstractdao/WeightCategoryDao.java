@@ -1,7 +1,8 @@
-package models.repositories;
+package models.repositories.abstractdao;
 
 
 import models.entity.basic.WeightCategory;
+import models.repositories.IDao;
 
 import java.util.List;
 
@@ -13,23 +14,23 @@ public abstract class WeightCategoryDao implements IDao<WeightCategory> {
 
 
     /*
-     * данные штуки понадобятся позже для административного управления
+     * данные штуки возможно понадобятся позже для административного управления?
      */
 
     @Override
-    public WeightCategory create(WeightCategory weightCategory) {
+    final public WeightCategory create(WeightCategory weightCategory) {
         //denied
         throw new Error();
     }
 
     @Override
-    public WeightCategory update(int id, WeightCategory weightCategory) {
+    final public WeightCategory update(int id, WeightCategory weightCategory) {
         //denied
         throw new Error();
     }
 
     @Override
-    public WeightCategory delete(int id) {
+    final public WeightCategory delete(int id) {
         //denied
         throw new Error();
     }

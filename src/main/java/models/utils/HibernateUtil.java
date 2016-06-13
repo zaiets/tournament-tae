@@ -25,9 +25,10 @@ public class HibernateUtil {
         sessionFactory.getCurrentSession().delete(entity);
     }
 
-    public <T> void delete(Serializable id, Class<T> entityClass) {
+    public <T> T delete(Serializable id, Class<T> entityClass) {
         T entity = selectById(id, entityClass);
         delete(entity);
+        return entity;
     }
 
     @SuppressWarnings("rawtypes")

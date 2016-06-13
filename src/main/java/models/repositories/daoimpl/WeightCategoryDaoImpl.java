@@ -1,8 +1,8 @@
-package models.repositories.daos;
+package models.repositories.daoimpl;
 
 
 import models.entity.basic.WeightCategory;
-import models.repositories.WeightCategoryDao;
+import models.repositories.abstractdao.WeightCategoryDao;
 import models.utils.HibernateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class WeightCategoryDaoImpl extends WeightCategoryDao {
+public final class WeightCategoryDaoImpl extends WeightCategoryDao {
     public WeightCategoryDaoImpl() {}
 
     @Autowired

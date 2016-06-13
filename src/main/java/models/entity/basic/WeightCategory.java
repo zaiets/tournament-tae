@@ -19,25 +19,25 @@ public class WeightCategory {
     @Column(name = "ID")
     private Integer id;
     @Basic
-    @Column(name = "SEX")
+    @Column(name = "SEX", nullable=false)
     private Character sex;
     @Basic
-    @Column(name = "MIN_AGE")
+    @Column(name = "MIN_AGE", nullable=false)
     private Integer minAge;
     @Basic
-    @Column(name = "MAX_AGE")
+    @Column(name = "MAX_AGE", nullable=false)
     private Integer maxAge;
     @Basic
-    @Column(name = "MIN_WEIGHT")
+    @Column(name = "MIN_WEIGHT", nullable=false)
     private Integer minWeight;
     @Basic
-    @Column(name = "MAX_WEIGHT")
+    @Column(name = "MAX_WEIGHT", nullable=false)
     private Integer maxWeight;
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable=false)
     private String name;
     @Basic
-    @Column(name = "WEIGHT_FACTOR")
+    @Column(name = "WEIGHT_FACTOR", nullable=false)
     private String weightFactor;
     @OneToMany(mappedBy = "weightCategory")
     private Set<Sparrer> sparrers;

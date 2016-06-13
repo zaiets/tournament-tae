@@ -17,7 +17,7 @@ public class Discipline {
     @Column(name = "ID")
     private Integer id;
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable=false)
     private String name;
     @OneToMany(mappedBy = "discipline")
     private List<Event> events;

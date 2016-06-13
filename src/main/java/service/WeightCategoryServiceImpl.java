@@ -1,7 +1,7 @@
 package service;
 
 import models.entity.basic.WeightCategory;
-import models.repositories.WeightCategoryDao;
+import models.repositories.abstractdao.WeightCategoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

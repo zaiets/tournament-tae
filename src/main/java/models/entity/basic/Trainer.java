@@ -20,13 +20,13 @@ public class Trainer {
     @Column(name = "ID")
     private Integer id;
     @Basic
-    @Column(name = "SURNAME")
+    @Column(name = "SURNAME", nullable=false)
     private String surname;
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable=false)
     private String name;
     @Basic
-    @Column(name = "PATRONYMIC")
+    @Column(name = "PATRONYMIC", nullable=false)
     private String patronymic;
     @ManyToOne
     @JoinColumn(name = "SCHOOL_ID")
@@ -40,7 +40,7 @@ public class Trainer {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -76,6 +76,14 @@ public class Trainer {
         this.school = school;
     }
 
+    public Set<Sparrer> getSparrers() {
+        return sparrers;
+    }
+
+    public void setSparrers(Set<Sparrer> sparrers) {
+        this.sparrers = sparrers;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,7 +97,8 @@ public class Trainer {
         if (getName() != null ? !getName().equals(trainer.getName()) : trainer.getName() != null) return false;
         if (getPatronymic() != null ? !getPatronymic().equals(trainer.getPatronymic()) : trainer.getPatronymic() != null)
             return false;
-        return getSchool() != null ? getSchool().equals(trainer.getSchool()) : trainer.getSchool() == null;
+        if (getSchool() != null ? !getSchool().equals(trainer.getSchool()) : trainer.getSchool() != null) return false;
+        return getSparrers() != null ? getSparrers().equals(trainer.getSparrers()) : trainer.getSparrers() == null;
 
     }
 
@@ -100,6 +109,7 @@ public class Trainer {
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getPatronymic() != null ? getPatronymic().hashCode() : 0);
         result = 31 * result + (getSchool() != null ? getSchool().hashCode() : 0);
+        result = 31 * result + (getSparrers() != null ? getSparrers().hashCode() : 0);
         return result;
     }
 }
