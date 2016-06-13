@@ -11,7 +11,7 @@
     <mvc:resources mapping="/resources/**" location="WEB-INF"/>
 
     <!-- base package -->
-    <context:component-scan base-package="java"/>
+    <context:component-scan annotation-config="true" base-package="models, service, controllers"/>
 
     <!-- database properties -->
     <context:property-placeholder location="classpath:properties/database.properties"/>

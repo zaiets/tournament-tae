@@ -1,16 +1,18 @@
 package models.utils;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Repository
+@Component
 public class HibernateUtil {
 
     @Autowired
     private SessionFactory sessionFactory;
+
+    public HibernateUtil() {    }
 
     public <T> Serializable create(final T entity) {
         return sessionFactory.getCurrentSession().save(entity);

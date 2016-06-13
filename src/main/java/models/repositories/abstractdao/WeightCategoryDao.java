@@ -8,6 +8,7 @@ import java.util.List;
 
 
 public abstract class WeightCategoryDao implements IDao<WeightCategory, Integer> {
+
     public abstract WeightCategory read(int id);
 
     public abstract List<WeightCategory> getAll();

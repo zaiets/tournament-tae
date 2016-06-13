@@ -11,10 +11,10 @@ import java.util.List;
 
 @Repository
 public final class UserDaoImpl extends UserDao {
-    public UserDaoImpl () {}
-
     @Autowired
     private HibernateUtil hibernateUtil;
+
+    public UserDaoImpl () {    }
 
     @Override
     public User read(int id) {
