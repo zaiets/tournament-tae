@@ -95,19 +95,6 @@ CREATE TABLE IF NOT EXISTS sparrers_disciplines (
   UNIQUE (tournament_id, sparrer_id, discipline_id)
 );
 
-CREATE TABLE IF NOT EXISTS sparrers_events (
-  tournament_id INT NOT NULL,
-  sparrer_id    INT NOT NULL,
-  event_id      INT NOT NULL,
-  FOREIGN KEY (sparrer_id) REFERENCES sparrers (id)
-    ON DELETE CASCADE,
-  FOREIGN KEY (event_id) REFERENCES events (id)
-    ON DELETE CASCADE,
-  FOREIGN KEY (tournament_id) REFERENCES tournaments (id)
-    ON DELETE CASCADE,
-  UNIQUE (tournament_id, sparrer_id, event_id)
-);
-
 CREATE TABLE IF NOT EXISTS events (
   id            INT AUTO_INCREMENT PRIMARY KEY,
   time          DATETIME,
@@ -123,4 +110,18 @@ CREATE TABLE IF NOT EXISTS events (
   FOREIGN KEY (discipline_id) REFERENCES disciplines (id)
     ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS sparrers_events (
+  tournament_id INT NOT NULL,
+  sparrer_id    INT NOT NULL,
+  event_id      INT NOT NULL,
+  FOREIGN KEY (sparrer_id) REFERENCES sparrers (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (event_id) REFERENCES events (id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (tournament_id) REFERENCES tournaments (id)
+    ON DELETE CASCADE,
+  UNIQUE (tournament_id, sparrer_id, event_id)
+);
+
 

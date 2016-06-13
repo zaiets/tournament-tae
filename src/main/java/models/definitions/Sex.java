@@ -1,8 +1,6 @@
 package models.definitions;
 
-/**
- * Created by Levsha on 15.02.2016.
- */
+
 public enum Sex {
     MALE('ч'),
     FEMALE('ж');

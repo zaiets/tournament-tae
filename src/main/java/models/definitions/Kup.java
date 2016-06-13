@@ -1,8 +1,5 @@
 package models.definitions;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public enum Kup {
     KUP_10(1, "10 куп"),
     KUP_9(2, "9 куп"),
