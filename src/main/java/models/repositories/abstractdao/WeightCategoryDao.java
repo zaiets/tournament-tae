@@ -7,7 +7,7 @@ import models.repositories.IDao;
 import java.util.List;
 
 
-public abstract class WeightCategoryDao implements IDao<WeightCategory> {
+public abstract class WeightCategoryDao implements IDao<WeightCategory, Integer> {
     public abstract WeightCategory read(int id);
 
     public abstract List<WeightCategory> getAll();
@@ -18,7 +18,7 @@ public abstract class WeightCategoryDao implements IDao<WeightCategory> {
      */
 
     @Override
-    final public WeightCategory create(WeightCategory weightCategory) {
+    final public Integer create(WeightCategory weightCategory) {
         //denied
         throw new Error();
     }
